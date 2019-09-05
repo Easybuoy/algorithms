@@ -1,0 +1,2 @@
+# algorithms
+Solving algorithm challenges
