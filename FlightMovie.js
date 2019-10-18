@@ -16,4 +16,3 @@ calculateFlightMovie = (flightTime, moviesList) => {
 console.log(calculateMovie(180, [120, 20, 40, 70]));
 // console.log(calculateMovie(160, [80, 20, 40, 80]));
 console.log(calculateMovie(195, [75, 120, 65, 140, 80, 95, 45, 72]));
-// {75: 0, 140: 1, 120: 2, 80: 3}
