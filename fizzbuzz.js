@@ -1,19 +1,17 @@
 const fizzBuzz = () => {
-    for (i=0; i<= 100; i++) {
-        // console.log(i)
-        // console.log(i/3)
-        // console.log(Number.isInteger(i / 3))
-        if (i % 3 == 0) {
-            console.log('fizz')
-        }
-        if (i % 5 == 0) {
-            console.log('buzz')
-        }
+  for (i = 1; i <= 100; i++) {
+    divisibleBy5 = i % 5 == 0;
+    divisibleBy3 = i % 3 == 0;
+    if (divisibleBy5 && divisibleBy3) {
+      console.log('fizz-buzz');
+    } else if (divisibleBy3) {
+      console.log('fizz');
+    } else if (divisibleBy5) {
+      console.log('buzz');
+    } else {
+      console.log(i);
+    }
+  }
+};
 
-        if (i%3 == 0 && i%5 == 0) {
-            console.log('fizz-buzz')
-        }
-    } 
-}
-
-console.log(fizzBuzz())
+console.log(fizzBuzz());
