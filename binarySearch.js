@@ -36,4 +36,4 @@ const binarySearch = (array, item) => {
 
   return search(start, end);
 };
-console.log(binarySearch([1, 3, 4, 5, 13, 20, 25, 40, 42, 44, 53], 53));
+console.log(binarySearch([1, 3, 4, 5, 13, 20, 25, 40, 42, 44, 53], 25));
