@@ -35,6 +35,12 @@
 // };
 
 let balanced_brackets = str => {
+  const splitCharacters = str.split('');
+  const character = splitCharacters.filter(item =>
+    ['{', '}', '[', ']', '|'].includes(item)
+  );
+  console.log(character, 'char');
+
   let stack = [];
   let map = {
     '(': ')',
@@ -42,29 +48,54 @@ let balanced_brackets = str => {
     '{': '}'
   };
 
-  for (let i = 0; i < str.length; i++) {
-    // If character is an opening brace add it to a stack
-    if (str[i] === '(' || str[i] === '{' || str[i] === '[') {
-      stack.push(str[i]);
-    }
-    //  If that character is a closing brace, pop from the stack, which will also reduce the length of the stack each time a closing bracket is encountered.
-    else {
+  for (let i = 0; i < character.length; i++) {
+    if (character[i] === '(' || character[i] === '{' || character[i] === '[') {
+      stack.push(character[i]);
+    } else {
       let last = stack.pop();
-      console.log(str[i], map[last])
-        
-      //If the popped element from the stack, which is the last opening brace doesn’t match the corresponding closing brace in the map, then return false
-      if (str[i] !== map[last]) {
+
+      if (character[i] !== map[last]) {
         return false;
       }
     }
   }
-  // By the completion of the for loop after checking all the brackets of the str, at the end, if the stack is not empty then fail
+
   if (stack.length !== 0) {
     return false;
   }
 
   return true;
 };
-// console.log(balanced_brackets('{([])}'));
-console.log(balanced_brackets('({)}'));
+console.log(balanced_brackets('{{||[]||}}'));
+// console.log(balanced_brackets('({)}'));
 // console.log(balanced_brackets('[]'))
+
+
+function balancedBrackets(string) {
+    const splitCharacters = string.split('');
+    const characters = splitCharacters.filter(item => ['(', ')', '{', '}', '[', ']', '|'].includes(item))
+    let response = []
+    let check = {
+        '(': ')',
+        '[': ']',
+        '{': '}',
+        '|': '|'
+    }
+    for(let i=0; i < characters.length; i++ ){
+        if (characters[i] == '(' || characters[i] == '[' || characters[i] == '{' || characters[i] == '|') {
+            response.push(characters[i])
+        } else {
+            let lastItem = response.pop();
+            console.log(characters[i], check[lastItem])
+            if (characters[i] != check[lastItem]) {
+                console.log('a')
+                return false;
+            }
+        }
+    }
+
+    if (response.length !== 0){ console.log('v')
+        return false
+    }
+    return true
+}
