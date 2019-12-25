@@ -47,4 +47,4 @@ const fibonacci_sequence = (sequence) => {
     return fibonacci_response
 }
 
-console.log(fibonacci_sequence(8))
+console.log(fibonacci_sequence(9))
