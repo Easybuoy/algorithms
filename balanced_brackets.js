@@ -34,39 +34,39 @@
 //   return true;
 // };
 
-let balanced_brackets = str => {
-  const splitCharacters = str.split('');
-  const character = splitCharacters.filter(item =>
-    ['{', '}', '[', ']', '|'].includes(item)
-  );
-  console.log(character, 'char');
+// let balanced_brackets = str => {
+//   const splitCharacters = str.split('');
+//   const character = splitCharacters.filter(item =>
+//     ['{', '}', '[', ']', '|'].includes(item)
+//   );
+//   console.log(character, 'char');
 
-  let stack = [];
-  let map = {
-    '(': ')',
-    '[': ']',
-    '{': '}'
-  };
+//   let stack = [];
+//   let map = {
+//     '(': ')',
+//     '[': ']',
+//     '{': '}'
+//   };
 
-  for (let i = 0; i < character.length; i++) {
-    if (character[i] === '(' || character[i] === '{' || character[i] === '[') {
-      stack.push(character[i]);
-    } else {
-      let last = stack.pop();
+//   for (let i = 0; i < character.length; i++) {
+//     if (character[i] === '(' || character[i] === '{' || character[i] === '[') {
+//       stack.push(character[i]);
+//     } else {
+//       let last = stack.pop();
 
-      if (character[i] !== map[last]) {
-        return false;
-      }
-    }
-  }
+//       if (character[i] !== map[last]) {
+//         return false;
+//       }
+//     }
+//   }
 
-  if (stack.length !== 0) {
-    return false;
-  }
+//   if (stack.length !== 0) {
+//     return false;
+//   }
 
-  return true;
-};
-console.log(balanced_brackets('{{||[]||}}'));
+//   return true;
+// };
+// console.log(balanced_brackets('{{||[]||}}'));
 // console.log(balanced_brackets('({)}'));
 // console.log(balanced_brackets('[]'))
 
@@ -87,6 +87,7 @@ function balancedBrackets(string) {
         } else {
             let lastItem = response.pop();
             console.log(characters[i], check[lastItem])
+            console.log(characters[i], check[lastItem])
             if (characters[i] != check[lastItem]) {
                 console.log('a')
                 return false;
@@ -99,3 +100,5 @@ function balancedBrackets(string) {
     }
     return true
 }
+
+console.log(balancedBrackets('{{||[]||}}'));
