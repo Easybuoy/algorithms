@@ -32,7 +32,15 @@ def checkMagazine(magazine, note):
         else:
             noteCount[noteItem] = 1
 
-    if note
+    for noteIt in noteCount.keys():
+        if noteIt in magazine and noteCount[noteIt] <= magazineCount[noteIt]:
+            continue
+        else:
+            print('No')
+            return
+    print('Yes')
+    return
+        # if noteIt.value
 
     # for mag in range(0, len(magazine)):
     #     dictn.insert(magazine[mag], mag)
@@ -40,10 +48,10 @@ def checkMagazine(magazine, note):
     # dictn.insert('give', 0)
 
 
-# checkMagazine(['give', 'me', 'one', 'grand', 'today', 'night'], [
-#     'give', 'one', 'grand', 'today'])
-checkMagazine(['two', 'times', 'three', 'is', 'not', 'four'], [
-    'two', 'times', 'two', 'is', 'four'])
+checkMagazine(['give', 'me', 'one', 'grand', 'today', 'night'], [
+    'give', 'one', 'grand', 'today'])
+# checkMagazine(['two', 'times', 'three', 'is', 'not', 'four'], [
+#     'two', 'times', 'two', 'is', 'four'])
 
 # For each of the items, loop through magazine
 # add items to the Hashtables
