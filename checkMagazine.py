@@ -1,12 +1,12 @@
 # def checkMagazineFirstPass(magazine, note):
-#     for mag in range(0, len(magazine)):
-#         if magazine[mag] in note:
-#             note.remove(magazine[mag])
+#     for magazineItem in magazine:
+#         if magazineItem in note:
+#             note.remove(magazineItem)
 #     if len(note) > 0:
 #         print("No")
-#         return "No"
+#         return
 #     print("Yes")
-#     return "YEs"
+#     return 
 
 
 # checkMagazineFirstPass(['give', 'me', 'one', 'grand', 'today', 'night'], [
@@ -17,35 +17,30 @@
 
 
 def checkMagazine(magazine, note):
-    magazineCount = {}
-    noteCount = {}
+    magazineDict = {}
+    noteDict = {}
 
-    for mag in magazine:
-        if mag in magazineCount:
-            magazineCount[mag] += 1
+    for magazineItem in magazine:
+        if magazineItem in magazineDict:
+            magazineDict[magazineItem] += 1
         else:
-            magazineCount[mag] = 1
+            magazineDict[magazineItem] = 1
 
     for noteItem in note:
-        if noteItem in noteCount:
-            noteCount[noteItem] += 1
+        if noteItem in noteDict:
+            noteDict[noteItem] += 1
         else:
-            noteCount[noteItem] = 1
+            noteDict[noteItem] = 1
 
-    for noteIt in noteCount.keys():
-        if noteIt in magazine and noteCount[noteIt] <= magazineCount[noteIt]:
+    for noteItem in noteDict.keys():
+        if noteItem in magazine and noteDict[noteItem] <= magazineDict[noteItem]:
             continue
         else:
             print('No')
             return
     print('Yes')
     return
-        # if noteIt.value
 
-    # for mag in range(0, len(magazine)):
-    #     dictn.insert(magazine[mag], mag)
-
-    # dictn.insert('give', 0)
 
 
 checkMagazine(['give', 'me', 'one', 'grand', 'today', 'night'], [
