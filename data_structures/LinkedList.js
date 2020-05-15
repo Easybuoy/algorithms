@@ -25,17 +25,28 @@ class LinkedList {
    * Removes the value at the end of the linked list
    * @return {*} - the removed value
    */
-  // {
-  //   head: {value: 1, next: {value: 2, next: null}}
-  //   tail: {value: 2, next: null}
-  // }
-  removeTail() {}
+  removeTail() {
+    let currentNode = this.head;
+    while (currentNode.next !== this.tail) {
+      currentNode = currentNode.next;
+    }
+
+    this.tail = currentNode;
+    currentNode.next = null;
+  }
   /*
    * Searches the linked list and returns true if it contains the value passed
    * @param {*} value - the value to search for
    * @return {boolean} - true if value is found, otherwise false
    */
-  contains(value) {}
+  contains(value) {
+    let currentNode = this.head;
+    while (currentNode.value !== value) {
+      currentNode = currentNode.next;
+    }
+
+    return currentNode.value === value;
+  }
   /*
    * Checks if a node is the head of the linked list
    * @param {{prev:Object|null, next:Object|null}} node - the node to check
@@ -70,7 +81,7 @@ myList.insert(3);
 //   tail: {value: 3, next: null}
 // }
 // console.log(myList);
-// myList.removeTail();
+myList.removeTail();
 // console.log(myList);
 // myList.removeNext(prevNode);
 
@@ -80,4 +91,4 @@ function removeNext(list, prevNode) {}
 //   tail: {value: 2, next: null}
 // }
 
-console.log(myList)
+console.log(myList);
