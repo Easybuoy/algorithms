@@ -1,8 +1,9 @@
 /** Class representing a Hash Table */
 
 class HashTable {
-  constructor() {
+  constructor(val) {
     this._storage = [];
+    this._tableSize = val;
   }
   /*
    * Inserts a new key-value pair
@@ -10,7 +11,12 @@ class HashTable {
    * @param {*} value - the value to insert
    */
   insert(key, value) {
-    this._storage[key] = value;
+    const index = this._hash(key, this._tableSize);
+
+    if (!this._storage[index]) {
+      this._storage[index] = [];
+    }
+    this._storage[index].push([key, value]);
   }
   /*
    * Deletes a key-value pair
@@ -28,7 +34,16 @@ class HashTable {
    * @return {*} - the value associated with the key
    */
   retrieve(key) {
-    return this._storage[key];
+    const index = this._hash(key, this._tableSize);
+    const arrayAtIndex = this._storage[index];
+    if (arrayAtIndex) {
+      for (let i = 0; i < this._storage[index]; i++) {
+        const keyValueArray = arrayAtIndex[i];
+        if (keyValueArray[0] === key) {
+          return keyValueArray[1];
+        }
+      }
+    }
   }
   /*
    * Hashes string value into an integer that can be mapped to an array index
@@ -44,9 +59,9 @@ class HashTable {
   }
 }
 
-const hashTable = new HashTable()
-hashTable.insert('one', 1)
-hashTable.insert('two', 2)
-hashTable.insert('three', 3)
-hashTable.remove('three')
-console.log(hashTable)
+const hashTable = new HashTable(25);
+hashTable.insert("one", 1);
+hashTable.insert("two", 2);
+hashTable.insert("three", 3);
+hashTable.remove("three");
+console.log(hashTable);
