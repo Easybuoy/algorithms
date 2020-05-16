@@ -40,8 +40,8 @@ class Queue {
    */
   peek() {
     if (this._length > 0) {
-        return this._storage[this._headIndex ];
-      }
+      return this._storage[this._headIndex];
+    }
   }
 }
 
@@ -52,5 +52,5 @@ queuue.enqueue("two");
 console.log(queuue.dequeue());
 console.log(queuue.dequeue());
 queuue.enqueue("three");
-console.log(queuue.peek())
+console.log(queuue.peek());
 console.log(queuue);
