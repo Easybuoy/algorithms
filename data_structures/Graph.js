@@ -31,7 +31,26 @@ class Graph {
 
   removeEdge(node1, node2) {}
 
-  depthFirstTraversal(startingNode, func = console.log) {}
+  depthFirstTraversal(startingNode, func = console.log) {
+    let visited = {};
+    let queue = [];
+
+    queue.push(startingNode);
+    queue[startingNode] = true;
+
+    while (queue) {
+      const current = queue.pop();
+      const neighbours = this.adjList[current];
+
+      neighbours.forEach((neighbour) => {
+        if (!visited[neighbour]) {
+          queue.push(neighbour);
+          visited[neighbour] = true;
+        }
+      });
+    }
+  }
+  }
 
   breadthFirstTraversal(startingNode, func = console.log) {
     let visited = {};
