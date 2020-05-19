@@ -3,14 +3,26 @@ class Tree {
     this.value = value;
     this.children = [];
   }
+
   insertChild(value) {
     const newTree = new Tree(value);
     this.children.push(newTree);
     return newTree;
   }
 
+  removeChild(value) {
+    const newTree = new Tree(value);
+    this.children.push(newTree);
+    return newTree;
+  }
+
   // Uses a Depth-First Traversal
-  static traverse(tree, func = console.log) {}
+  static traverse(tree) {
+    console.log(tree.name);
+    tree.children.forEach((singleTree) => {
+      this.traverse(singleTree);
+    });
+  }
 
   contains(searchValue) {}
 
@@ -29,5 +41,5 @@ class Tree {
 
 const myTree = new Tree(1);
 const myTree2 = myTree.insertChild(2);
-myTree2.insertChild(3)
+myTree2.insertChild(3);
 console.log(myTree);
