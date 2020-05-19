@@ -45,12 +45,14 @@ class Queue {
   }
 }
 
-const queuue = new Queue();
+export default Queue
 
-queuue.enqueue("one");
-queuue.enqueue("two");
-console.log(queuue.dequeue());
-console.log(queuue.dequeue());
-queuue.enqueue("three");
-console.log(queuue.peek());
-console.log(queuue);
+// const queuue = new Queue();
+
+// queuue.enqueue("one");
+// queuue.enqueue("two");
+// console.log(queuue.dequeue());
+// console.log(queuue.dequeue());
+// queuue.enqueue("three");
+// console.log(queuue.peek());
+// console.log(queuue);

@@ -33,7 +33,25 @@ class Graph {
 
   depthFirstTraversal(startingNode, func = console.log) {}
 
-  breadthFirstTraversal(startingNode, func = console.log) {}
+  breadthFirstTraversal(startingNode, func = console.log) {
+    let visited = {};
+    let queue = [];
+
+    queue.push(startingNode);
+    queue[startingNode] = true;
+
+    while (queue) {
+      const current = queue.shift();
+      const neighbours = this.adjList[current];
+
+      neighbours.forEach((neighbour) => {
+        if (!visited[neighbour]) {
+          queue.push(neighbour);
+          visited[neighbour] = true;
+        }
+      });
+    }
+  }
 }
 
 // export default Graph;
