@@ -50,7 +50,6 @@ class Graph {
       });
     }
   }
-  }
 
   breadthFirstTraversal(startingNode, func = console.log) {
     let visited = {};
