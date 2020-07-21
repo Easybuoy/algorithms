@@ -86,19 +86,28 @@ function balancedBrackets(string) {
             response.push(characters[i])
         } else {
             let lastItem = response.pop();
-            console.log(characters[i], check[lastItem])
-            console.log(characters[i], check[lastItem])
+            // console.log(characters[i], check[lastItem])
+            // console.log(characters[i], check[lastItem])
             if (characters[i] != check[lastItem]) {
-                console.log('a')
+                // console.log('a')
                 return false;
             }
         }
     }
 
-    if (response.length !== 0){ console.log('v')
+    if (response.length !== 0){
         return false
     }
     return true
 }
 
-console.log(balancedBrackets('{{||[]||}}'));
+// console.log(balancedBrackets('{{||[]||}}'));
+console.log(balancedBrackets('()'))
+console.log(balancedBrackets('(([]){})'))
+console.log(balancedBrackets('([)'))
+console.log(balancedBrackets('([)]'))
+console.log(balancedBrackets('[(({}[]))]'))
+console.log(balancedBrackets('[()()]()'))
+console.log(balancedBrackets('())('))
+console.log(balancedBrackets('(hello)'))
+console.log(balancedBrackets('())'))
